@@ -1,0 +1,90 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="card">
+            <div class="card-body">
+                <ng-container *ngIf="errors">
+                    <div class="alert alert-danger" role="alert">
+                        {{errors?.errors | json}}
+                    </div>
+                </ng-container>
+                <form [formGroup]="clientForm" (ngSubmit)="id ? updateClient() : saveClient()" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="cedula">Cedula*</label>
+                        <input type="text"
+                            id="cedula"
+                            class="form-control"
+                            [readOnly]="id"
+                            required
+                            formControlName="identification"
+                            [value]="clientForm.get('identification').value"
+                            [class.is-invalid]="controlHasError(clientForm.get('identification'))">
+                        <div class="invalid-feedback" role="alert"
+                            *ngIf="controlHasError(clientForm.get('identification'))">
+                            <div *ngIf="clientForm.get('identification').errors?.required">
+                                Es requerido
+                            </div>
+                            <div *ngIf="clientForm.get('identification').errors.minlength ||
+                            clientForm.get('identification').errors.maxlength">
+                                Minimo de caracteres 7 y maximo 10
+                            </div>
+                            <div *ngIf="clientForm.get('identification').errors.pattern">
+                                No cumple con el formato de solo números
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre*</label>
+                        <input type="text" id="nombre" class="form-control" required formControlName="name"
+                            [class.is-invalid]="controlHasError(clientForm.get('name'))">
+                        <div class="invalid-feedback" role="alert" *ngIf="controlHasError(clientForm.get('name'))">
+                            <div *ngIf="clientForm.get('name').errors?.required">
+                                Es requerido
+                            </div>
+                            <div *ngIf="clientForm.get('name').errors.pattern">
+                                No cumple con el formato de solo texto
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Direción*</label>
+                        <input type="text" id="address" class="form-control" required formControlName="address"
+                            [class.is-invalid]="controlHasError(clientForm.get('address'))">
+                        <div class="invalid-feedback" role="alert" *ngIf="controlHasError(clientForm.get('address'))">
+                            <div *ngIf="clientForm.get('address').errors?.required">
+                                Es requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cellphone">Celular*</label>
+                        <input type="text" id="cellphone" class="form-control" required formControlName="cellphone"
+                            [class.is-invalid]="controlHasError(clientForm.get('cellphone'))">
+                        <div class="invalid-feedback" role="alert" *ngIf="controlHasError(clientForm.get('cellphone'))">
+                            <div *ngIf="clientForm.get('cellphone').errors?.required">
+                                Es requerido
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Correo electronico</label>
+                        <input type="text" id="email" class="form-control" formControlName="email"
+                            [class.is-invalid]="controlHasError(clientForm.get('email'))">
+                    </div>
+                    <ng-container *ngIf="clientImage">
+                        <div class="form-group">
+                            <img [src]="clientImage" [alt]="" width="200" class="rounded mx-auto d-block">
+                        </div>
+                    </ng-container>
+                    <div class="form-group">
+                        <label for="image">Imagen</label>
+                        <input type="file" class="form-control-file" id="image" (change)="onFileSelect($event)">
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-block"
+                            [attr.disabled]="!clientForm.valid ? 'disabled' : null">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<ng-container *ngIf="errors">
+    <div class="alert alert-danger" role="alert">
+        {{errors?.errors | json}}
+    </div>
+</ng-container>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th scope="col">Cédula</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Imagen</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Fecha de creación</th>
+                <th scope="col">Fecha de actualización</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let client of clients">         
+                <td>
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-check" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M11 14s1 0 1-1-1-4-6-4-6 3-6 4 1 1 1 1h10zm-9.995-.944v-.002.002zM1.022 13h9.956a.274.274 0 0 0 .014-.002l.008-.002c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664a1.05 1.05 0 0 0 .022.004zm9.974.056v-.002.002zM6 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4zm3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0zm6.854.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L12.5 7.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                    </svg>
+                </td>
+                <td scope="row">{{ client.identification }}</td>
+                <td>{{ client.name }}</td>
+                <td>{{ client.address }}</td>
+                <td>{{ client.cellphone }}</td>
+                <td>{{ client.image }}</td>
+                <td>{{ client.email }}</td>
+                <td>{{ client.created_at | date:'MM/dd/yyyy'}}</td>
+                <td>{{ client.updated_at | date:'MM/dd/yyyy'}}</td>
+                <td>
+                    <div style="display: flex;">
+                        <button type="button" class="btn btn-danger mr-2" (click)="deleteClient(client.id)">Eliminar</button>
+                        <button type="button" class="btn btn-success" (click)="updateClient(client.id)">Actualizar</button>
+                    </div>
+                </td>
+            </tr>
+            <tr *ngIf="clients.length === 0">
+                <td colspan="9">
+                    <div class="alert alert-info text-center" role="alert">
+                        No hay clientes
+                    </div> 
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
