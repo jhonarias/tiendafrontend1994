@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Client } from '../models/client.model';
 import { environment } from 'src/environments/environment';
 import { ClientResponse } from '../models/client-response.model';
 import { ClientsResponse } from '../models/clients-response.model';
@@ -10,7 +9,7 @@ import { ClientsResponse } from '../models/clients-response.model';
   providedIn: 'root'
 })
 export class ClientService {
-  private API_URI = environment.apiUrl;
+  private API_URI = environment.apiUrlClient;
   constructor(private http: HttpClient) {
   }
 

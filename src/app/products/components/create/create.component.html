@@ -1,0 +1,24 @@
+<form [formGroup]="productsForm" (ngSubmit)="addProducts()" enctype="multipart/form-data">
+    <div class="row">
+        <ng-container *ngFor="let key of getFormKeys(); let index = index">
+            <div class="col-md-6 offset-md-3">
+                <div class="form-group">
+                    <app-create-product
+                        [productForm]="productsForm.get(key)"
+                        (deleteProductEmitter)="deleteProduct(key)"
+                        [allowDelete]="canDeleteProduct()"
+                        [index]="index"></app-create-product>
+                </div>
+            </div>
+        </ng-container>
+        <div class="col-md-6 offset-md-3">
+            <div class="text-center form-group">
+                <button type="button" class="btn btn-success btn-block" (click)="addProduct()">Agregar</button>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-block"
+                    [attr.disabled]="!productsForm.valid ? 'disabled' : null">Guardar</button>
+            </div>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">
+        Producto {{ index+1 }}
+      </div>
+    <div class="card-body">
+        <div [formGroup]="productForm">
+            <div class="form-group">
+                <label for="nombre">Nombre*</label>
+                <input type="text" id="nombre" class="form-control" required formControlName="name"
+                    [class.is-invalid]="controlHasError(productForm.get('name'))">
+                <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('name'))">
+                    <div *ngIf="productForm.get('name').errors?.required">
+                        Es requerido
+                    </div>
+                    <div *ngIf="productForm.get('name').errors.pattern">
+                        No cumple con el formato de solo texto
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-container *ngIf="allowDelete">
+        <div class="card-footer text-muted">
+            <button type="button" (click)="deleteProduct()" class="btn btn-danger btn-block">Eliminar</button>
+        </div>
+    </ng-container>
+</div>

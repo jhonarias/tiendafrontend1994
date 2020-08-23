@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ClientService } from '../../services/client.service';
 import { Router } from '@angular/router';
 import { Client } from '../../models/client.model';
-import { ApiResponse } from '../../models/api-response.model';
-import { ThrowStmt } from '@angular/compiler';
+import { ApiResponse } from '../../../shared/models/api-response.model';
 
 @Component({
   selector: 'app-index',
@@ -12,13 +11,12 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class IndexComponent implements OnInit {
 
-  public clients: Client[];
+  public clients: Client[] = [];
   public errors: ApiResponse;
 
   constructor(private clientService: ClientService, private router: Router) { }
 
   ngOnInit() {
-    this.clients = [];
     this.getClients();
   }
 

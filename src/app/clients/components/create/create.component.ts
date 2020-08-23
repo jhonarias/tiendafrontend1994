@@ -4,7 +4,7 @@ import { ClientService } from '../../services/client.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Client } from '../../models/client.model';
 import { environment } from 'src/environments/environment';
-import { ApiResponse } from '../../models/api-response.model';
+import { ApiResponse } from '../../../shared/models/api-response.model';
 
 @Component({
   selector: 'app-create',
