@@ -1,5 +1,5 @@
-import { EnumProductStatus } from './product-status.enum';
 import { Category } from 'src/app/categories/models/category.model';
+import { EnumProductStatus } from '../enums/product-enum.model';
 
 export interface Product {
     product_id?: number;

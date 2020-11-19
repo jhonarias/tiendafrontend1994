@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FormGroup, AbstractControl } from '@angular/forms';
+import { FormGroup, AbstractControl, FormControl, Validators } from '@angular/forms';
+import { Category } from 'src/app/categories/models/category.model';
+import { EnumProductStatus } from 'src/app/products/enums/product-enum.model';
 
 @Component({
   selector: 'app-create-product',
@@ -7,13 +9,16 @@ import { FormGroup, AbstractControl } from '@angular/forms';
   styleUrls: ['./create-product.component.scss'],
 })
 export class CreateProductComponent implements OnInit {
+  public enumProductStatus = EnumProductStatus;
   @Input() productForm: FormGroup;
   @Output() deleteProductEmitter = new EventEmitter<any>();
   @Input() index: number;
   @Input() allowDelete: boolean;
+  @Input() categories: Category[];
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   /**
    * Check if form control has errors
@@ -28,5 +33,27 @@ export class CreateProductComponent implements OnInit {
    */
   public deleteProduct() {
     this.deleteProductEmitter.emit();
+  }
+
+  /**
+   * get value file type file
+   * @param event type file
+   */
+  public onFileSelect(event: any): void {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.productForm.get('image').setValue(event.target.files[0]);
+      };
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+  /**
+   * convert category to string to send to server
+   * @param category object
+   */
+  public convertObjectCategoryToString(category: Category): string {
+    return JSON.stringify(category);
   }
 }

@@ -36,8 +36,8 @@
                 <td>{{ client.updated_at | date:'MM/dd/yyyy'}}</td>
                 <td>
                     <div style="display: flex;">
-                        <button type="button" class="btn btn-danger mr-2" (click)="deleteClient(client.id)">Eliminar</button>
-                        <button type="button" class="btn btn-success" (click)="updateClient(client.id)">Actualizar</button>
+                        <button type="button" class="btn btn-danger mr-2" (click)="deleteClient(client.client_id)">Eliminar</button>
+                        <button type="button" class="btn btn-success" (click)="updateClient(client.client_id)">Actualizar</button>
                     </div>
                 </td>
             </tr>

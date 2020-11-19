@@ -5,8 +5,8 @@
     <div class="card-body">
         <div [formGroup]="productForm">
             <div class="form-group">
-                <label for="nombre">Nombre*</label>
-                <input type="text" id="nombre" class="form-control" required formControlName="name"
+                <label for="name">Nombre*</label>
+                <input type="text" id="name" class="form-control" required formControlName="name"
                     [class.is-invalid]="controlHasError(productForm.get('name'))">
                 <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('name'))">
                     <div *ngIf="productForm.get('name').errors?.required">
@@ -16,6 +16,96 @@
                         No cumple con el formato de solo texto
                     </div>
                 </div>
+            </div>
+            <div class="form-group">
+                <label for="category">Categoria*</label>
+                <select class="form-control" required id="category" formControlName="category"
+                    [class.is-invalid]="controlHasError(productForm.get('category'))">
+                    <ng-container *ngFor="let category of categories">
+                        <option [value]="convertObjectCategoryToString(category)">{{ category.name }}</option>
+                    </ng-container>
+                </select>
+                <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('category'))">
+                    <div *ngIf="productForm.get('category').errors?.required">
+                        Es requerido
+                    </div>
+                    <div *ngIf="productForm.get('category').errors.pattern">
+                        No cumple con el formato de solo texto
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description">Descripción*</label>
+                <textarea class="form-control" rows="3" required id="description" formControlName="description"
+                    [class.is-invalid]="controlHasError(productForm.get('description'))">
+                </textarea>
+                <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('description'))">
+                    <div *ngIf="productForm.get('description').errors?.required">
+                        Es requerido
+                    </div>
+                    <div *ngIf="productForm.get('description').errors.pattern">
+                        No cumple con el formato de solo texto
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="price">Precio*</label>
+                <input type="text" id="price" class="form-control" required formControlName="price"
+                    [class.is-invalid]="controlHasError(productForm.get('price'))">
+                <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('price'))">
+                    <div *ngIf="productForm.get('price').errors?.required">
+                        Es requerido
+                    </div>
+                    <div *ngIf="productForm.get('price').errors.pattern">
+                        No cumple con el formato de solo números
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Cantidad*</label>
+                <input type="text" id="quantity" class="form-control" required formControlName="quantity"
+                    [class.is-invalid]="controlHasError(productForm.get('quantity'))">
+                <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('quantity'))">
+                    <div *ngIf="productForm.get('quantity').errors?.required">
+                        Es requerido
+                    </div>
+                    <div *ngIf="productForm.get('quantity').errors.pattern">
+                        No cumple con el formato de solo números
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="iva">Iva*</label>
+                <input type="text" id="iva" class="form-control" required formControlName="iva"
+                    [class.is-invalid]="controlHasError(productForm.get('iva'))">
+                <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('iva'))">
+                    <div *ngIf="productForm.get('iva').errors?.required">
+                        Es requerido
+                    </div>
+                    <div *ngIf="productForm.get('iva').errors.pattern">
+                        No cumple con el formato de solo números
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="status">Estado*</label>
+                <select class="form-control" required id="status" formControlName="status"
+                    [class.is-invalid]="controlHasError(productForm.get('status'))">
+                    <option [value]="enumProductStatus.ACTIVE">Activo</option>
+                    <option [value]="enumProductStatus.INACTIVE">Inactivo</option>
+                </select>
+                <div class="invalid-feedback" role="alert" *ngIf="controlHasError(productForm.get('status'))">
+                    <div *ngIf="productForm.get('status').errors?.required">
+                        Es requerido
+                    </div>
+                    <div *ngIf="productForm.get('status').errors.pattern">
+                        No cumple con el formato de solo texto
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="image">Imagen</label>
+                <input type="file" class="form-control-file" id="image" (change)="onFileSelect($event)">
             </div>
         </div>
     </div>

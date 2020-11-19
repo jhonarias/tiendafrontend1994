@@ -102,12 +102,12 @@ export class CreateComponent implements OnInit {
       .subscribe(
         data => {
           const client: Client = data.data;
-          this.clientForm.get('id').setValue(client.id);
+          this.clientForm.get('id').setValue(client.client_id);
           this.clientForm.get('identification').setValue(client.identification);
           this.clientForm.get('name').setValue(client.name);
           this.clientForm.get('address').setValue(client.address);
           if (client.image) {
-            this.clientImage = this.apiUrl + client.image;
+            this.clientImage = this.apiUrl + 'clients/' + client.image;
           }
           this.clientForm.get('cellphone').setValue(client.cellphone);
           this.clientForm.get('email').setValue(client.email);

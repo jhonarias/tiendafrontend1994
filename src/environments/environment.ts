@@ -5,6 +5,7 @@
 export const environment = {
   apiUrlClient: 'http://localhost:3000/api/clients',
   apiUrlProduct: 'http://localhost:3000/api/products',
+  apiUrlCategory: 'http://localhost:3000/api/categories',
   publicServer: 'http://localhost:3000/uploads/',
   production: false
 };
