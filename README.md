@@ -34,4 +34,8 @@ git add .
 git commit -m 'Name commit'
 git push
 
+## GITHAB
+USERNAME: jhfrarval@gmail.com PASSWORD:  Lamasbella123.
+Esta como repositorio
+
 Open tienda in web: https://tiendafrontend1994.herokuapp.com/
