@@ -30,6 +30,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - CREDENTIALS: USERNAME: jhfrarval@gmail.com 
 - PASSWORD:  Lamasbella123.
 - Nombre del proyecto creado en Heroku: tiendafrontend1994
+- En el package.json esto es lo que corre primero "start": "node server.js" para que funcione en Heroku luego  "heroku-postbuild": "ng build --prod"
 
 ## Documentation deploy to Heroku
 https://medium.com/@roliver_javier/como-desplegar-tu-aplicacion-de-angular-en-heroku-7b9941b6d39
@@ -38,6 +39,9 @@ https://medium.com/@roliver_javier/como-desplegar-tu-aplicacion-de-angular-en-he
 - git add .
 - git commit -m 'Name commit'
 - git push
+
+## Deploy Heroku
+- luego de haber subido a GitHab, vamos a Heroku -> tiendafrontend1994 -> Deploy -> Manual deploy -> seleccionamos master -> Deploy Branch
 
 ## GITHAB (ESTA COMO REPOSITORIO)
 -USERNAME: jhfrarval@gmail.com PASSWORD:  Lamasbella123.
