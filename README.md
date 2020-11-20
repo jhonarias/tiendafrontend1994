@@ -29,3 +29,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Documentation deploy to Heroku
 https://medium.com/@roliver_javier/como-desplegar-tu-aplicacion-de-angular-en-heroku-7b9941b6d39
 
+Deploy GitHab -> Esto luego se sincroniza con Heroku
+git add .
+git commit -m 'Name commit'
+git push
+
+Open tienda in web: https://tiendafrontend1994.herokuapp.com/
