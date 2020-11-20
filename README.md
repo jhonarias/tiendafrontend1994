@@ -26,6 +26,11 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
+## HEROKU
+- CREDENTIALS: USERNAME: jhfrarval@gmail.com 
+- PASSWORD:  Lamasbella123.
+- Nombre del proyecto creado en Heroku: tiendafrontend1994
+
 ## Documentation deploy to Heroku
 https://medium.com/@roliver_javier/como-desplegar-tu-aplicacion-de-angular-en-heroku-7b9941b6d39
 
