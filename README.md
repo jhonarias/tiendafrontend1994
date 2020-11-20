@@ -30,12 +30,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 https://medium.com/@roliver_javier/como-desplegar-tu-aplicacion-de-angular-en-heroku-7b9941b6d39
 
 ## Deploy GitHab -> Esto luego se sincroniza con Heroku
-git add .
-git commit -m 'Name commit'
-git push
+- git add .
+- git commit -m 'Name commit'
+- git push
 
-## GITHAB
-USERNAME: jhfrarval@gmail.com PASSWORD:  Lamasbella123.
-Esta como repositorio
-
-Open tienda in web: https://tiendafrontend1994.herokuapp.com/
+## GITHAB (ESTA COMO REPOSITORIO)
+-USERNAME: jhfrarval@gmail.com PASSWORD:  Lamasbella123.
+- Open tienda in web: https://tiendafrontend1994.herokuapp.com/
